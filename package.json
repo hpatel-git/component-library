@@ -1,0 +1,42 @@
+{
+  "name": "component-library",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test-clear-cache && yarn test"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf build",
+    "bundle": "rimraf build && rollup -c --silent",
+    "prettier": "prettier '**/*.{ts,tsx,less,js,jsx}' --write",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "unit-tests": "jest --verbose --coverage",
+    "test-clear-cache": "jest --clearCache"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "fs-extra": "^9.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.10",
+    "node-emoji": "^1.10.0",
+    "prettier": "^2.0.5",
+    "rollup": "^2.16.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
